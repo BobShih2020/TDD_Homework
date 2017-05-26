@@ -1,0 +1,10 @@
+D:\TDD-Tools\Homework\TDD_Day1_Homework\TDD_Day1_Homework\bin\Debug\TDD_Day1_Homework.dll
+D:\TDD-Tools\Homework\TDD_Day1_Homework\TDD_Day1_Homework\bin\Debug\TDD_Day1_Homework.pdb
+D:\TDD-Tools\Homework\TDD_Day1_Homework\TDD_Day1_Homework\obj\Debug\TDD_Day1_Homework.csprojResolveAssemblyReference.cache
+D:\TDD-Tools\Homework\TDD_Day1_Homework\TDD_Day1_Homework\obj\Debug\TDD_Day1_Homework.dll
+D:\TDD-Tools\Homework\TDD_Day1_Homework\TDD_Day1_Homework\obj\Debug\TDD_Day1_Homework.pdb
+D:\TDD-Tools\TDD_Day1_Homework\TDD_Day1_Homework\bin\Debug\TDD_Day1_Homework.dll
+D:\TDD-Tools\TDD_Day1_Homework\TDD_Day1_Homework\bin\Debug\TDD_Day1_Homework.pdb
+D:\TDD-Tools\TDD_Day1_Homework\TDD_Day1_Homework\obj\Debug\TDD_Day1_Homework.csprojResolveAssemblyReference.cache
+D:\TDD-Tools\TDD_Day1_Homework\TDD_Day1_Homework\obj\Debug\TDD_Day1_Homework.dll
+D:\TDD-Tools\TDD_Day1_Homework\TDD_Day1_Homework\obj\Debug\TDD_Day1_Homework.pdb
