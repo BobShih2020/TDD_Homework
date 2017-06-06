@@ -122,7 +122,7 @@ namespace PotterShoppingCart.Tests
             //arrange
             var expected = 320;
 
-            List<Book> shoppingcart = GetShoppingCart(1, 1, 1, 0, 0);
+            List<Book> shoppingcart = GetShoppingCart(1, 1, 1, 1, 0);
 
             //act            
             var actual = Cashire.GetPrice(shoppingcart);
