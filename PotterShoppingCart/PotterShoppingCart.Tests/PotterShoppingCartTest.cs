@@ -77,7 +77,7 @@ namespace PotterShoppingCart.Tests
             //arrange
             var expected = 100;
 
-            List<Book> shoppingcart = GetShoppingCart(1,0,0,0,0);
+            List<Book> shoppingcart = GetShoppingCart(1, 0, 0, 0, 0);
 
             //act            
             var actual = Cashire.GetPrice(shoppingcart);
@@ -105,15 +105,76 @@ namespace PotterShoppingCart.Tests
 
     public class Cashire
     {
-        internal static int GetPrice(List<Book> shoppingcart)
-        {           
-            return 100;
+        internal static Decimal GetPrice(IEnumerable<Book> shoppingcart)
+        {            
+            return CacutePrice(shoppingcart);
+        }
+
+
+        private static Decimal CacutePrice(IEnumerable<Book> shoppingcart)
+        {
+            //數量0的以外有幾種書
+            var order = shoppingcart.Where(t => t.Quantity > 0);
+            var booktypecount = order.Count();
+
+            //沒有數量則直接回傳0
+            if (booktypecount == 0)
+                return 0;
+
+            //計算折數
+            var discount = GetDiscount(booktypecount);
+
+            //計算數量(取最小數量)
+            var minquantity = order.Min(t => t.Quantity);
+
+            //取得價格
+            var orderprice = order.Select(t => t.Price).Sum();
+
+            //計算金額(數量*價格*折數)
+            var subtotal = minquantity * orderprice * discount;
+
+
+            //扣除已計價數量
+            var restorder = new List<Book>();
+
+
+                foreach (var book in order)
+            {
+                book.Quantity -= minquantity;
+                restorder.Add(book);
+            }
+
+            //計算總金額=小計+剩餘金額
+            var totalprice = subtotal + CacutePrice(restorder);
+
+            return totalprice;
+
+        }
+
+
+        private static Decimal GetDiscount(int booktypecount)
+        {
+            switch (booktypecount)
+            {
+                case 1:
+                    return 1;
+                case 2:
+                    return 0.95M;
+                case 3:
+                    return 0.9M;
+                case 4:
+                    return 0.8M;
+                case 5:
+                    return 0.75M;
+                default:
+                    return 1;
+            }
         }
     }
 
     public class Book
     {
-        public Book(string bookName, int price, int quantity)
+        public Book(string bookName, Decimal price, int quantity)
         {
             this.BookName = bookName;
             this.Price = price;
@@ -121,7 +182,7 @@ namespace PotterShoppingCart.Tests
         }
         public string BookName { get; }
 
-        public int Price { get; }
+        public Decimal Price { get; }
 
         public int Quantity { get; set; }
     }
