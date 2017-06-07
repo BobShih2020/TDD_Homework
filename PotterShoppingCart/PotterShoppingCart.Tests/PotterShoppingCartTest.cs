@@ -174,8 +174,37 @@ namespace PotterShoppingCart.Tests
 
             //assert
             Assert.AreEqual(expected, actual);
-        }        
+        }
 
+        [TestMethod]
+        public void 第一集一本第二三集各兩本第五集三本共690元()
+        {
+            //arrange
+            var expected = 690;
+
+            List<Book> shoppingcart = GetShoppingCart(1, 2, 2, 0, 3);
+
+            //act            
+            var actual = Cashire.GetPrice(shoppingcart);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void 第一集一本第二三集各兩本第四集三本第五集三本共885元()
+        {
+            //arrange
+            var expected = 100*5*0.75M+100*4*0.8M+100*2*0.95M;
+
+            List<Book> shoppingcart = GetShoppingCart(1, 2, 2, 3, 3);
+
+            //act            
+            var actual = Cashire.GetPrice(shoppingcart);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 
