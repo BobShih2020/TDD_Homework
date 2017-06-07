@@ -207,5 +207,20 @@ namespace PotterShoppingCart.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void 都不買應為0元()
+        {
+            //arrange
+            var expected = 0;
+
+            List<Book> shoppingcart = GetShoppingCart(0,0,0,0,0);
+
+            //act            
+            var actual = Cashier.GetPrice(shoppingcart);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
